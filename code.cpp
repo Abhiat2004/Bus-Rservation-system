@@ -3,17 +3,20 @@
 #include <string>
 using namespace std;
 
+//class for creating a datatype for passenger
 class Passenger {
 public:
     string name, age, gender, mobileNumber;
 };
 
+//class for creating a datatype for bus with a method
 class Bus {
 public:
     string name, number, startingPoint, endingPoint, timing;
     int seatsAvailable;
     double seatCost;
 
+    //method to dispolay the details of bus
     void displayDetails() const {
         cout << "Bus Name: " << name << endl;
         cout << "Bus Number: " << number << endl;
@@ -25,17 +28,19 @@ public:
     }
 };
 
-
+//class for creating a datatype for account
 class Account {
 public:
     string name, age, email, mobileNumber, username, password, confirmPassword;
 };
 
+//class for creating a datatype for booking ticket
 class Booking {
 public:
     int busIndex;
     vector<Passenger> passengers;
 
+    //method to book a ticket
     void bookTicket(const Bus& bus) {
         busIndex = -1;
         passengers.clear();
@@ -62,8 +67,10 @@ public:
     }
 };
 
+//class for creating a datatype for ticket
 class Ticket {
 public:
+    //method to display ticket that is booked
     void showTicket(const Bus& bus, const Booking& booking) {
         cout << "Bus Name: " << bus.name << endl;
         cout << "Bus Number: " << bus.number << endl;
@@ -84,6 +91,7 @@ public:
     }
 };
 
+//class that has all the methods that run the application
 class BusPortal {
 private:
     vector<Account> accounts;
@@ -92,6 +100,7 @@ private:
     Ticket ticket;
 
 public:
+    //method that runs whole application (like a home page of the application)
     void run() {
         int choice;
         do {
@@ -119,12 +128,13 @@ public:
     }
 
 private:
+//portal for admins to add the details of the bus and view the buses
     void adminPortal() {
         string adminName, adminPassword;
 
         cout << "Enter Admin Username: ";
         cin >> adminName;
-
+//verification of admin
         if (adminName == "srmadmin") {
             cout << "Enter Admin Password: ";
             cin >> adminPassword;
@@ -165,6 +175,7 @@ private:
         } while (choice != 3);
     }
 
+    //method to display all the buses
     void displayBuses() {
         if (buses.empty()) {
             cout << "No Buses are Installed!" << endl;
@@ -175,6 +186,7 @@ private:
         }
     }
 
+    //method to add new busses to the portal
     void installBus() {
         Bus bus;
         cout << "Bus Name: ";
@@ -195,6 +207,7 @@ private:
         buses.push_back(bus);
     }
 
+    //method to access the user portal
     void userPortal() {
         int choice;
         do {
@@ -220,6 +233,7 @@ private:
         } while (choice != 3);
     }
 
+    //method for  logging in
     void login() {
         string username, password;
 
@@ -244,6 +258,7 @@ private:
         cout << "No Account found!" << endl;
     }
 
+    //method which give access to the options in the user portal
     void userMenu(const Account& account) {
         int choice;
         Booking booking;
@@ -285,6 +300,7 @@ private:
         } while (choice != 4);
     }
 
+    //method to create a new account for new users
     void signUp() {
         Account account;
         cout << "Enter your Name: ";
