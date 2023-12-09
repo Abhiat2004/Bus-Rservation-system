@@ -104,7 +104,7 @@ public:
     void run() {
         int choice;
         do {
-            cout << "Welcome to SRM BUS Portal" << endl;
+            cout << "Welcome to Abhinava BUS Portal" << endl;
             cout << "1. Admin Portal" << endl << "2. User Portal" << endl << "3. Exit" << endl;
             cout << "Enter Your Choice: ";
             cin >> choice;
@@ -135,7 +135,7 @@ private:
         cout << "Enter Admin Username: ";
         cin >> adminName;
 //verification of admin
-        if (adminName == "srmadmin") {
+        if (adminName == "abhiadmin") {
             cout << "Enter Admin Password: ";
             cin >> adminPassword;
 
@@ -340,3 +340,4 @@ int main() {
 
     return 0;
 }
+
